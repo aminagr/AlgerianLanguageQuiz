@@ -34,7 +34,7 @@ To get a local copy up and running, follow these steps:
    git clone https://github.com/aminagr/AlgerianLanguageQuiz
    cd quiz
    npm install
-    npm start
+   npm start
 ```
 ## 🛠 How to Use
 
