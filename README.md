@@ -50,7 +50,7 @@ To get a local copy up and running, follow these steps:
 
 1. **Select Language**: Choose your preferred language from the dropdown menu (French or English).
 2. **Choose Difficulty Level**: Pick a level that matches your expertise.
-3. **Start the Quiz**: Dive into the quiz and enjoy testing your knowledge on various topics related to Algerian culture!
+3. **Start the Quiz**: Dive into the quiz and enjoy testing your knowledge on Algerian dialect!
 
 ## 🤝 Contributing
 
