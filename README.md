@@ -35,7 +35,7 @@ To get a local copy up and running, follow these steps:
    cd quiz
    npm install
     npm start
-      ```
+```
 ## 🛠 How to Use
 
 1. **Select Language**: Choose your preferred language from the dropdown menu (French or English).
