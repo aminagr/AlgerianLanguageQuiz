@@ -4,7 +4,11 @@
 
 ## 🌟 Overview
 
-Welcome to the Algerian Multi-Language Quiz Application! This interactive and modern React application is designed to celebrate Algerian culture through a captivating quiz experience. Whether you're a language enthusiast or a trivia master, this app offers a fun way to test your knowledge across different difficulty levels and languages.
+
+Welcome to the Algerian Language Quiz! This interactive and modern React application offers an engaging way to learn and explore the Algerian dialect. Dive into a fun and interactive quiz experience designed to challenge your knowledge of Algerian dialect across different difficulty levels.
+
+
+
 
 ## 🎯 Features
 
