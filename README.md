@@ -27,6 +27,12 @@ Welcome to the Algerian Language Quiz! This interactive and modern React applica
 
 ## 📸 Screenshots
 
+![image](https://github.com/user-attachments/assets/43d8eccc-c58f-447d-8417-4747889dc443)
+![image](https://github.com/user-attachments/assets/e5f9c404-ddcb-4c41-884a-d93864575b70)
+![image](https://github.com/user-attachments/assets/3bc4d7ca-6315-48ad-a42d-0025e32d1606)
+![image](https://github.com/user-attachments/assets/704beb21-c424-4649-a886-6b49dbbd8b8e)
+
+
 
 
 ## 🚀 Getting Started
