@@ -45,41 +45,32 @@ const translations = {
   },
 };
 
-const Home = () => {
-  const [startQuiz, setStartQuiz] = useState(false);
+const Home = ({ setStartQuiz }) => {
   const [language, setLanguage] = useState('en'); // Default language
   const [difficulty, setDifficulty] = useState(null);
 
   const handleStartQuiz = (level) => {
     setDifficulty(level);
     setStartQuiz(true);
+    localStorage.setItem('language', language);
+    localStorage.setItem('difficulty', level);
   };
 
   return (
     <div className="home">
-      {!startQuiz ? (
-        <>
-          <h1 className='welcome'>{translations[language].welcome}</h1> 
-          <h2>{translations[language].title}</h2>
-          <select onChange={(e) => setLanguage(e.target.value)} value={language}>
-            <option value="en">🇬🇧 English</option>
-            <option value="fr">🇫🇷 Français</option>
-            <option value="es">🇪🇸 Español</option>
-            <option value="it">🇮🇹 Italiano</option>
-            <option value="ru">🇷🇺 Русский</option>
-          </select>
-          <h2>{translations[language].difficultyTitle}</h2>
-          <button onClick={() => handleStartQuiz('niveau1')}>{translations[language].level1}</button>
-          <button onClick={() => handleStartQuiz('niveau2')}>{translations[language].level2}</button>
-          <button onClick={() => handleStartQuiz('niveau3')}>{translations[language].level3}</button>
-        </>
-      ) : (
-        <Quiz 
-          language={language} 
-          difficulty={difficulty} 
-          setStartQuiz={setStartQuiz} 
-        />
-      )}
+      <h1 className='welcome'>{translations[language].welcome}</h1> 
+      <h2>{translations[language].title}</h2>
+      <select onChange={(e) => setLanguage(e.target.value)} value={language}>
+        <option value="en">🇬🇧 English</option>
+        <option value="fr">🇫🇷 Français</option>
+        <option value="es">🇪🇸 Español</option>
+        <option value="it">🇮🇹 Italiano</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+      <h2>{translations[language].difficultyTitle}</h2>
+      <button onClick={() => handleStartQuiz('niveau1')}>{translations[language].level1}</button>
+      <button onClick={() => handleStartQuiz('niveau2')}>{translations[language].level2}</button>
+      <button onClick={() => handleStartQuiz('niveau3')}>{translations[language].level3}</button>
     </div>
   );
 };

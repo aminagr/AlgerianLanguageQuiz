@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Question from './Question';
 import questions from './questions';
 
@@ -35,14 +35,30 @@ const translations = {
   },
 };
 
-const Quiz = ({ language, difficulty, setStartQuiz }) => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [score, setScore] = useState(0);
+const Quiz = ({ setStartQuiz }) => {
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en');
+  const [difficulty, setDifficulty] = useState(() => localStorage.getItem('difficulty') || 'niveau1');
+  
+  const [currentQuestion, setCurrentQuestion] = useState(() => {
+    const savedQuestion = localStorage.getItem('currentQuestion');
+    return savedQuestion ? JSON.parse(savedQuestion) : 0; // Default to 0
+  });
+
+  const [score, setScore] = useState(() => {
+    const savedScore = localStorage.getItem('score');
+    return savedScore ? JSON.parse(savedScore) : 0; // Default to 0
+  });
+
   const [result, setResult] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isDisabled, setIsDisabled] = useState(false);
 
   const currentQuestions = questions[language][difficulty];
+
+  useEffect(() => {
+    localStorage.setItem('currentQuestion', currentQuestion);
+    localStorage.setItem('score', score);
+  }, [currentQuestion, score]);
 
   const handleAnswer = (index) => {
     if (isDisabled) return;
@@ -50,7 +66,7 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
     setSelectedAnswer(index);
     const isCorrect = index === currentQuestions[currentQuestion].correct;
     if (isCorrect) {
-      setScore(score + 1);
+      setScore(prevScore => prevScore + 1);
     }
 
     setResult(isCorrect);
@@ -59,27 +75,36 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
     setTimeout(() => {
       setResult(null);
       setSelectedAnswer(null);
-      setCurrentQuestion(currentQuestion + 1);
+      setCurrentQuestion(prevQuestion => prevQuestion + 1);
       setIsDisabled(false);
     }, 1000);
   };
 
   const handleQuit = () => {
     setStartQuiz(false);
+    localStorage.removeItem('currentQuestion'); // Clear saved question
+    localStorage.removeItem('score'); // Clear saved score
+    localStorage.removeItem('language'); // Clear language
+    localStorage.removeItem('difficulty'); // Clear difficulty
   };
 
   const handleReplay = () => {
-    setCurrentQuestion(0);
-    setScore(0);
-    setStartQuiz(true);
+    setCurrentQuestion(0); // Reset to the first question
+    setScore(0); // Reset score
+    setStartQuiz(true); // Start quiz again
+    localStorage.removeItem('currentQuestion'); // Clear saved question
+    localStorage.removeItem('score'); // Clear saved score
   };
 
   return (
     <div className="quiz">
       {currentQuestion < currentQuestions.length ? (
         <>
+        <button onClick={handleQuit} className="quit-button-mob">
+            ❌
+          </button>
           <p className="question-number">
-            {language === 'fr' ? 'Question' : language === 'es' ? 'Pregunta' : language === 'it' ? 'Domanda' : language === 'ru' ? 'Вопрос' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}
+            {language === 'fr' ? 'Question' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}
           </p>
           <Question 
             question={currentQuestions[currentQuestion]} 
@@ -89,9 +114,7 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
             isDisabled={isDisabled}
           />
           <h2>{translations[language].score} {score}</h2>
-          <button onClick={handleQuit} className="quit-button-mob">
-            <span>{translations[language].exit}</span>❌
-          </button>
+          
         </>
       ) : (
         <>

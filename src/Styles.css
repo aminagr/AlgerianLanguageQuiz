@@ -119,8 +119,9 @@ select:hover {
   color: green;
 }
 
-.quit-button-mob { display: none; }
-
+.quit-button-mob{
+  background-color: #1e1e1e;
+}
 .header{ text-align: center;
   width: 100%; 
 padding: 10px 0;
