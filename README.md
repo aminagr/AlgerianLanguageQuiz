@@ -27,10 +27,19 @@ Welcome to the Algerian Language Quiz! This interactive and modern React applica
 
 ## 📸 Screenshots
 
-![image](https://github.com/user-attachments/assets/43d8eccc-c58f-447d-8417-4747889dc443)
-![image](https://github.com/user-attachments/assets/e5f9c404-ddcb-4c41-884a-d93864575b70)
-![image](https://github.com/user-attachments/assets/3bc4d7ca-6315-48ad-a42d-0025e32d1606)
-![image](https://github.com/user-attachments/assets/704beb21-c424-4649-a886-6b49dbbd8b8e)
+![image](https://github.com/user-attachments/assets/b6ab461e-f4b8-4a1b-b7a7-e199dcb1d75b)
+![image](https://github.com/user-attachments/assets/9f224830-cc9c-4c58-895a-23c52f8801db)
+![image](https://github.com/user-attachments/assets/8a16dda8-2233-483c-af17-4f0f5016a02c)
+![image](https://github.com/user-attachments/assets/b12c45ff-5ad0-4596-abc3-95ddf4249275)
+![image](https://github.com/user-attachments/assets/96a1bd49-6040-4062-b6eb-d60abc7b589f)
+![image](https://github.com/user-attachments/assets/486cfa32-f5bd-47b8-8398-90526ac48487)
+![image](https://github.com/user-attachments/assets/5514112c-eb07-405f-87c6-a24db8645814)
+![image](https://github.com/user-attachments/assets/ab3ef0bb-4370-4d5c-bd97-9ddf10374cb6)
+![image](https://github.com/user-attachments/assets/a9d45e60-b001-4a28-8cfe-2e4c343d54ce)
+![image](https://github.com/user-attachments/assets/8f345d18-4d03-403c-b370-15aedc6e6e92)
+
+![image](https://github.com/user-attachments/assets/b3deed5b-8a05-4c1b-ac14-fecdaa6d0265)
+
 
 
 
