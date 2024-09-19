@@ -24,7 +24,7 @@ const questions = {
     ],
     niveau3: [
       { question: "What does 'khoya' mean?", answers: ["Friend", "Cousin", "Friend", "Brother"], correct: 3 },
-      { question: "What it the synonym of 'tonobil'", answers: ["Araba", "Loto", "Machina", "Autobus"], correct: 2 },
+      { question: "What is the synonym of 'tonobil'", answers: ["Araba", "Loto", "Machina", "Autobus"], correct: 2 },
     ],
   },
 };

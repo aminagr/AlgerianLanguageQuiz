@@ -101,6 +101,13 @@ select:hover {
 }
 .quit-button-mob{display :none;}
 
+.question-number {
+  font-size: 18px;
+  color: #e0e0e0;
+  margin: 10px 0;
+  animation: fadeIn 0.5s; /* Animation d'apparition */
+}
+
 
 @media (max-width: 600px) {
   body {

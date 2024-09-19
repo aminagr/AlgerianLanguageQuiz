@@ -6,19 +6,28 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [isDisabled, setIsDisabled] = useState(false); // Nouvel état pour désactiver les réponses
 
   const currentQuestions = questions[language][difficulty];
 
   const handleAnswer = (index) => {
+    if (isDisabled) return; // Empêche l'action si les boutons sont désactivés
+
+    setSelectedAnswer(index);
     const isCorrect = index === currentQuestions[currentQuestion].correct;
     if (isCorrect) {
       setScore(score + 1);
     }
 
     setResult(isCorrect);
+    setIsDisabled(true); // Désactive les boutons
+
     setTimeout(() => {
       setResult(null);
+      setSelectedAnswer(null);
       setCurrentQuestion(currentQuestion + 1);
+      setIsDisabled(false); // Réactive les boutons
     }, 1000);
   };
 
@@ -41,8 +50,12 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
             question={currentQuestions[currentQuestion]} 
             handleAnswer={handleAnswer} 
             result={result}
+            selectedAnswer={selectedAnswer}
+            isDisabled={isDisabled} // Passe l'état de désactivation
           />
-          {/* Bouton Quitter visible uniquement sur mobile */}
+          <p className="question-number">
+            Question {currentQuestion + 1} / {currentQuestions.length}
+          </p>
           <button onClick={handleQuit} className="quit-button-mob">
             <span>{language === 'fr' ? 'Quitter ' : 'Exit '}</span>❌
           </button>
@@ -50,7 +63,6 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
       ) : (
         <>
           <h2>{language === 'fr' ? 'Quiz terminé! Votre score est:' : 'Quiz finished! Your score is:'} {score}/{currentQuestions.length}</h2>
-          
           <button onClick={handleQuit} className="quit-button">
             <span>{language === 'fr' ? 'Quitter ' : 'Exit '}</span>❌
           </button>
@@ -61,6 +73,6 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
       )}
     </div>
   );
-}
+};
 
-export default Quiz; 
+export default Quiz;
