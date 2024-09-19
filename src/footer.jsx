@@ -1,12 +1,11 @@
-
 import React from 'react';
 
-const Footer = () => {
+function Footer() {
   return (
     <footer className="footer">
-      <p>Developed by Amina Grine ©</p>
+      Developed by Amina Grine © All Rights Reserved
     </footer>
   );
-};
+}
 
 export default Footer;

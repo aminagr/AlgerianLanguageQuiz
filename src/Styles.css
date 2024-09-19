@@ -107,6 +107,13 @@ select:hover {
 
 .quit-button-mob { display: none; }
 
+.header{ text-align: center;
+  width: 100%; 
+  padding: 10px 0;
+
+
+
+}
 .footer {
   background-color: black;
   color: #e0e0e0; /* Couleur du texte */
