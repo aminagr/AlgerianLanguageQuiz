@@ -1,25 +1,31 @@
+
 html, body {
   height: 100%; /* S'assurer que le body prend toute la hauteur */
   margin: 0; /* Éliminer les marges par défaut */
   background-color: #121212; /* Fond global */
   color: #e0e0e0; /* Couleur du texte global */
   font-family: 'Arial', sans-serif;
+  
 }
 
 .App {
-  min-height: calc(100vh - 40px); /* Ajuster la hauteur pour le footer */
+  min-height: 550px;
   display: flex;
-  flex-direction: column; /* Disposer les éléments en colonne */
-  justify-content: center; /* Centrer verticalement le contenu principal */
-  align-items: center; /* Centrer horizontalement le contenu */
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 0 !important;
+  margin: 0 !important;
+  align-content: space-between;
 }
-
 .home, .quiz {
+  
   text-align: center;
   animation: fadeIn 1s;
-  max-width: 400px; /* Limiter la largeur pour les écrans larges */
+  max-width: 500px; /* Limiter la largeur pour les écrans larges */
   width: 100%; /* Prendre toute la largeur sur les petits écrans */
-  padding: 20px; /* Ajouter du padding pour le confort */
+  padding: 10px; /* Ajouter du padding pour le confort */
+
 }
 
 button {
@@ -109,20 +115,27 @@ select:hover {
 
 .header{ text-align: center;
   width: 100%; 
-  padding: 10px 0;
-
-
+padding: 10px 0;
 
 }
 .footer {
   background-color: black;
   color: #e0e0e0; /* Couleur du texte */
   text-align: center; /* Centrer le texte */
-  padding: 10px 0; /* Espacement vertical */
+  padding: 20px 0; /* Espacement vertical */
+  
   width: 100%; /* Prendre toute la largeur */
   position: relative; /* Garder la position relative */
+ 
+}
+.quit-button {
+  background: red;
 }
 
+.quit-button:hover{
+background-color: #3700b3;
+  transform: scale(1.05);
+}
 @media (max-width: 600px) {
   body {
     height: auto; /* Permettre un défilement sur mobile */
@@ -130,7 +143,10 @@ select:hover {
   }
 
   h1 {
-    font-size: 20px;
+    font-size: 60px;
+  }
+  h1 {
+    font-size: 30px;
   }
 
   button {
@@ -180,9 +196,10 @@ select:hover {
     transition: background-color 0.3s, transform 0.3s;
   }
 
-  .quit-button:hover {
-    background-color: #1e1e1e1d;
-  }
+  .quit-button:hover{
+    background-color: #3700b3;
+      transform: scale(1.05);
+    }
 
   .quit-button-mob:hover {
     background-color: #1e1e1e1d;
@@ -194,11 +211,20 @@ select:hover {
 
   .footer {
     font-size: 14px; /* Ajuster la taille de la police pour mobile */
+   background-color:#121212; ;
+  color: #e0e0e0; /* Couleur du texte */
+  text-align: center; /* Centrer le texte */
+  
+  width: 100%; /* Prendre toute la largeur */
+  position: relative; /* Garder la position relative */
   }
 }
 
 @media (max-width: 400px) {
   h1 {
+    font-size: 20px;
+  }
+  h2 {
     font-size: 18px;
   }
 
