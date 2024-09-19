@@ -18,15 +18,23 @@ html, body {
   margin: 0 !important;
   align-content: space-between;
 }
-.home, .quiz {
-  
+.home {
   text-align: center;
   animation: fadeIn 1s;
-  max-width: 500px; /* Limiter la largeur pour les écrans larges */
   width: 100%; /* Prendre toute la largeur sur les petits écrans */
   padding: 10px; /* Ajouter du padding pour le confort */
-
 }
+
+.quiz {
+  display: flex; /* Activer Flexbox */
+  flex-direction: column; /* Aligner les éléments verticalement */
+  align-items: center; /* Centrer horizontalement */
+  animation: fadeIn 1s;
+  
+  width: 100%; /* Prendre toute la largeur sur les petits écrans */
+  padding: 10px; /* Ajouter du padding pour le confort */
+}
+
 
 button {
   background-color: #6200ea;
@@ -136,6 +144,12 @@ padding: 10px 0;
 background-color: #3700b3;
   transform: scale(1.05);
 }
+
+
+.welcome{text-align: center;
+padding-bottom: 20px;}
+  
+
 @media (max-width: 600px) {
   body {
     height: auto; /* Permettre un défilement sur mobile */
@@ -217,6 +231,7 @@ background-color: #3700b3;
   
   width: 100%; /* Prendre toute la largeur */
   position: relative; /* Garder la position relative */
+  padding: 20px 0;
   }
 }
 

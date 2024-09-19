@@ -4,6 +4,7 @@ import questions from './questions';
 
 const translations = {
   fr: {
+    welcome: "Bienvenue dans le quiz de langue algérienne",
     title: "Choisissez votre langue",
     difficultyTitle: "Choisissez le niveau de difficulté",
     level1: "Niveau 1",
@@ -11,6 +12,7 @@ const translations = {
     level3: "Niveau 3",
   },
   en: {
+    welcome: "Welcome to the Algerian Language Quiz",
     title: "Choose Your Language",
     difficultyTitle: "Choose Difficulty Level",
     level1: "Level 1",
@@ -21,7 +23,7 @@ const translations = {
 
 const Home = () => {
   const [startQuiz, setStartQuiz] = useState(false);
-  const [language, setLanguage] = useState('fr');
+  const [language, setLanguage] = useState('en'); // Changement de langue par défaut
   const [difficulty, setDifficulty] = useState(null);
 
   const handleStartQuiz = (level) => {
@@ -33,10 +35,12 @@ const Home = () => {
     <div className="home">
       {!startQuiz ? (
         <>
+          <h1 className='welcome'>{translations[language].welcome}</h1> 
           <h2>{translations[language].title}</h2>
           <select onChange={(e) => setLanguage(e.target.value)} value={language}>
-            <option value="fr">Français</option>
+        
             <option value="en">English</option>
+            <option value="fr">Français</option>
           </select>
           <h2>{translations[language].difficultyTitle}</h2>
           <button onClick={() => handleStartQuiz('niveau1')}>{translations[language].level1}</button>

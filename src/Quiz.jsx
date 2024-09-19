@@ -2,17 +2,28 @@ import React, { useState } from 'react';
 import Question from './Question';
 import questions from './questions';
 
+const translations = {
+  fr: {
+    quizFinished: 'Quiz terminé! Votre score est:',
+    exit: 'Quitter',
+  },
+  en: {
+    quizFinished: 'Quiz finished! Your score is:',
+    exit: 'Exit',
+  },
+};
+
 const Quiz = ({ language, difficulty, setStartQuiz }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [result, setResult] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [isDisabled, setIsDisabled] = useState(false); // Nouvel état pour désactiver les réponses
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const currentQuestions = questions[language][difficulty];
 
   const handleAnswer = (index) => {
-    if (isDisabled) return; // Empêche l'action si les boutons sont désactivés
+    if (isDisabled) return;
 
     setSelectedAnswer(index);
     const isCorrect = index === currentQuestions[currentQuestion].correct;
@@ -21,13 +32,13 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
     }
 
     setResult(isCorrect);
-    setIsDisabled(true); // Désactive les boutons
+    setIsDisabled(true);
 
     setTimeout(() => {
       setResult(null);
       setSelectedAnswer(null);
       setCurrentQuestion(currentQuestion + 1);
-      setIsDisabled(false); // Réactive les boutons
+      setIsDisabled(false);
     }, 1000);
   };
 
@@ -51,20 +62,20 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
             handleAnswer={handleAnswer} 
             result={result}
             selectedAnswer={selectedAnswer}
-            isDisabled={isDisabled} // Passe l'état de désactivation
+            isDisabled={isDisabled}
           />
           <p className="question-number">
-            Question {currentQuestion + 1} / {currentQuestions.length}
+            {language === 'fr' ? 'Question' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}
           </p>
           <button onClick={handleQuit} className="quit-button-mob">
-            <span>{language === 'fr' ? 'Quitter ' : 'Exit '}</span>❌
+            <span>{translations[language].exit}</span>❌
           </button>
         </>
       ) : (
         <>
-          <h2>{language === 'fr' ? 'Quiz terminé! Votre score est:' : 'Quiz finished! Your score is:'} {score}/{currentQuestions.length}</h2>
+          <h2>{translations[language].quizFinished} {score}/{currentQuestions.length}</h2>
           <button onClick={handleQuit} className="quit-button">
-            <span>{language === 'fr' ? 'Quitter ' : 'Exit '}</span>❌
+            <span>{translations[language].exit}</span>❌
           </button>
           <button onClick={handleReplay} className="replay-button">
             {language === 'fr' ? 'Rejouer' : 'Replay'}
