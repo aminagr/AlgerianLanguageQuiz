@@ -64,5 +64,8 @@ To get a local copy up and running, follow these steps:
 ## 🤝 Contributing
 
 We welcome contributions! If you would like to help improve the quiz or add new features, please fork the repository and submit a pull request.
+## License 📜
+
+This project is licensed for personal and educational purposes only. Commercial use, including selling or using the code to generate revenue, is strictly prohibited without explicit permission from the author.
 
 

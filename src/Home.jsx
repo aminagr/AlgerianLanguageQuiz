@@ -62,11 +62,11 @@ const Home = () => {
           <h1 className='welcome'>{translations[language].welcome}</h1> 
           <h2>{translations[language].title}</h2>
           <select onChange={(e) => setLanguage(e.target.value)} value={language}>
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="es">Español</option>
-            <option value="it">Italiano</option>
-            <option value="ru">Русский</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="fr">🇫🇷 Français</option>
+            <option value="es">🇪🇸 Español</option>
+            <option value="it">🇮🇹 Italiano</option>
+            <option value="ru">🇷🇺 Русский</option>
           </select>
           <h2>{translations[language].difficultyTitle}</h2>
           <button onClick={() => handleStartQuiz('niveau1')}>{translations[language].level1}</button>
