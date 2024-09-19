@@ -12,7 +12,7 @@ Welcome to the Algerian Language Quiz! This interactive and modern React applica
 
 ## 🎯 Features
 
-- **Multi-Language Support**: Enjoy quizzes in French and English, tailored to the Algerian dialect and culture.
+- **Multi-Language Support**: Enjoy quizzes in English, French, Spanish, Italian and Russian.
 - **Custom Difficulty Levels**: Challenge yourself with different levels of difficulty.
 - **Responsive Design**: Optimized for all devices, providing a seamless user experience on mobile and desktop.
 - **Engaging Animations**: Smooth transitions and animations enhance the interactive experience.
