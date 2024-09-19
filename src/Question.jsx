@@ -8,13 +8,11 @@ const Question = ({ question, handleAnswer, result, selectedAnswer, isDisabled }
         let buttonClass = 'answer-button';
 
         if (result !== null) {
-          // Si c'est la bonne réponse
           if (index === question.correct) {
             buttonClass += ' correct';
           }
-          // Si c'est la réponse sélectionnée et incorrecte
           if (!result && index === selectedAnswer) {
-            buttonClass += ' wrong'; // Colorie en rouge
+            buttonClass += ' wrong';
           }
         }
 
@@ -23,7 +21,7 @@ const Question = ({ question, handleAnswer, result, selectedAnswer, isDisabled }
             key={index} 
             onClick={() => handleAnswer(index)} 
             className={buttonClass}
-            disabled={isDisabled} // Désactive le bouton si isDisabled est vrai
+            disabled={isDisabled}
           >
             {answer}
           </button>
@@ -31,7 +29,6 @@ const Question = ({ question, handleAnswer, result, selectedAnswer, isDisabled }
       })}
       {result !== null && (
         <p className={result === false ? 'wrong-answer' : 'correct-answer'}>
-          {/* Optionnel : afficher un message de feedback */}
         </p>
       )}
     </div>

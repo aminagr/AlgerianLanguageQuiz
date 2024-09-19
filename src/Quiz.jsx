@@ -6,10 +6,32 @@ const translations = {
   fr: {
     quizFinished: 'Quiz terminé! Votre score est:',
     exit: 'Quitter',
+    replay: 'Rejouer',
+    score: 'Score:',
   },
   en: {
     quizFinished: 'Quiz finished! Your score is:',
     exit: 'Exit',
+    replay: 'Replay',
+    score: 'Score:',
+  },
+  es: {
+    quizFinished: '¡Quiz terminado! Tu puntuación es:',
+    exit: 'Salir',
+    replay: 'Repetir',
+    score: 'Puntuación:',
+  },
+  it: {
+    quizFinished: 'Quiz terminato! Il tuo punteggio è:',
+    exit: 'Esci',
+    replay: 'Rigiocare',
+    score: 'Punteggio:',
+  },
+  ru: {
+    quizFinished: 'Викторина завершена! Ваш результат:',
+    exit: 'Выход',
+    replay: 'Перезапуск',
+    score: 'Результат:',
   },
 };
 
@@ -56,10 +78,8 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
     <div className="quiz">
       {currentQuestion < currentQuestions.length ? (
         <>
-        
-          
           <p className="question-number">
-            {language === 'fr' ? 'Question' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}
+            {language === 'fr' ? 'Question' : language === 'es' ? 'Pregunta' : language === 'it' ? 'Domanda' : language === 'ru' ? 'Вопрос' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}
           </p>
           <Question 
             question={currentQuestions[currentQuestion]} 
@@ -68,7 +88,7 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
             selectedAnswer={selectedAnswer}
             isDisabled={isDisabled}
           />
-        <h2>Score: {score}</h2>
+          <h2>{translations[language].score} {score}</h2>
           <button onClick={handleQuit} className="quit-button-mob">
             <span>{translations[language].exit}</span>❌
           </button>
@@ -80,7 +100,7 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
             <span>{translations[language].exit}</span>❌
           </button>
           <button onClick={handleReplay} className="replay-button">
-            {language === 'fr' ? 'Rejouer' : 'Replay'}
+            {translations[language].replay}
           </button>
         </>
       )}
