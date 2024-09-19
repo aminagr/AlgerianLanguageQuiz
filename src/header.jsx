@@ -1,14 +1,10 @@
+
 import React from 'react';
 
-const Header = ({ language }) => {
-  const translations = {
-    fr: "Quiz de Langue Algérienne",
-    en: "Algerian Language Quiz",
-  };
-
+const Header = () => {
   return (
     <header className="header">
-      <h1>{translations[language]}</h1>
+      <h1>Welcome to the Quiz App</h1>
     </header>
   );
 };
