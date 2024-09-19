@@ -56,7 +56,11 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
     <div className="quiz">
       {currentQuestion < currentQuestions.length ? (
         <>
-          <h2>Score: {score}</h2>
+        
+          
+          <p className="question-number">
+            {language === 'fr' ? 'Question' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}
+          </p>
           <Question 
             question={currentQuestions[currentQuestion]} 
             handleAnswer={handleAnswer} 
@@ -64,9 +68,7 @@ const Quiz = ({ language, difficulty, setStartQuiz }) => {
             selectedAnswer={selectedAnswer}
             isDisabled={isDisabled}
           />
-          <p className="question-number">
-            {language === 'fr' ? 'Question' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}
-          </p>
+        <h2>Score: {score}</h2>
           <button onClick={handleQuit} className="quit-button-mob">
             <span>{translations[language].exit}</span>❌
           </button>
