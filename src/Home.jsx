@@ -43,29 +43,46 @@ const translations = {
     level2: "Уровень 2",
     level3: "Уровень 3",
   },
+  ar: {
+    welcome: "مرحبا بكم في اختبار اللغة الجزائرية",
+    title: "اختر لغتك",
+    difficultyTitle: "اختر مستوى الصعوبة",
+    level1: "المستوى 1",
+    level2: "المستوى 2",
+    level3: "المستوى 3",
+  },
 };
 
 const Home = ({ setStartQuiz }) => {
-  const [language, setLanguage] = useState('en'); // Default language
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem('language') || 'en'; // Default to 'en' if not set
+  });
   const [difficulty, setDifficulty] = useState(null);
 
   const handleStartQuiz = (level) => {
     setDifficulty(level);
     setStartQuiz(true);
-    localStorage.setItem('language', language);
-    localStorage.setItem('difficulty', level);
+    localStorage.setItem('language', language); // Store language in local storage
+    localStorage.setItem('difficulty', level); // Store difficulty in local storage
+  };
+
+  const handleLanguageChange = (e) => {
+    const selectedLanguage = e.target.value;
+    setLanguage(selectedLanguage);
+    localStorage.setItem('language', selectedLanguage); // Save to local storage
   };
 
   return (
     <div className="home">
-      <h1 className='welcome'>{translations[language].welcome}</h1> 
+      <h1 className='welcome'>{translations[language].welcome}</h1>
       <h2>{translations[language].title}</h2>
-      <select onChange={(e) => setLanguage(e.target.value)} value={language}>
+      <select onChange={handleLanguageChange} value={language}>
         <option value="en">🇬🇧 English</option>
         <option value="fr">🇫🇷 Français</option>
         <option value="es">🇪🇸 Español</option>
         <option value="it">🇮🇹 Italiano</option>
         <option value="ru">🇷🇺 Русский</option>
+        <option value="ar">🇸🇦 العربية</option>
       </select>
       <h2>{translations[language].difficultyTitle}</h2>
       <button onClick={() => handleStartQuiz('niveau1')}>{translations[language].level1}</button>

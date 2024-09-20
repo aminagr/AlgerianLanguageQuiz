@@ -33,10 +33,17 @@ const translations = {
     replay: 'Перезапуск',
     score: 'Результат:',
   },
+  ar: {
+    quizFinished: 'انتهى الاختبار! نتيجتك هي:',
+    exit: 'خروج',
+    replay: 'إعادة اللعب',
+    score: 'النقاط:',
+  },
 };
 
+
 const Quiz = ({ setStartQuiz }) => {
-  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en');
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en'); // Get from local storage
   const [difficulty, setDifficulty] = useState(() => localStorage.getItem('difficulty') || 'niveau1');
   
   const [currentQuestion, setCurrentQuestion] = useState(() => {
@@ -84,8 +91,9 @@ const Quiz = ({ setStartQuiz }) => {
     setStartQuiz(false);
     localStorage.removeItem('currentQuestion'); // Clear saved question
     localStorage.removeItem('score'); // Clear saved score
-    localStorage.removeItem('language'); // Clear language
-    localStorage.removeItem('difficulty'); // Clear difficulty
+    // Remove language and difficulty only if you want to reset them
+    // localStorage.removeItem('language');
+    localStorage.removeItem('difficulty');
   };
 
   const handleReplay = () => {
