@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Question from './Question';
-import questions from './questions';
 
+import questions from './data/questions.json';
 const translations = {
   fr: {
     quizFinished: 'Quiz terminé! Votre score est:',
@@ -43,7 +43,7 @@ const translations = {
 
 
 const Quiz = ({ setStartQuiz }) => {
-  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en'); // Get from local storage
+  const [language, setLanguage] = useState(() => localStorage.getItem('language') || 'en');
   const [difficulty, setDifficulty] = useState(() => localStorage.getItem('difficulty') || 'niveau1');
   
   const [currentQuestion, setCurrentQuestion] = useState(() => {
@@ -91,8 +91,7 @@ const Quiz = ({ setStartQuiz }) => {
     setStartQuiz(false);
     localStorage.removeItem('currentQuestion'); // Clear saved question
     localStorage.removeItem('score'); // Clear saved score
-    // Remove language and difficulty only if you want to reset them
-    // localStorage.removeItem('language');
+   // localStorage.removeItem('language');
     localStorage.removeItem('difficulty');
   };
 
@@ -108,12 +107,8 @@ const Quiz = ({ setStartQuiz }) => {
     <div className="quiz">
       {currentQuestion < currentQuestions.length ? (
         <>
-        <button onClick={handleQuit} className="quit-button-mob">
-            ❌
-          </button>
-          <p className="question-number">
-            {language === 'fr' ? 'Question' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}
-          </p>
+          <button onClick={handleQuit} className="quit-button-mob">❌</button>
+          <p className="question-number">{language === 'fr' ? 'Question' : 'Question'} {currentQuestion + 1} / {currentQuestions.length}</p>
           <Question 
             question={currentQuestions[currentQuestion]} 
             handleAnswer={handleAnswer} 
@@ -122,17 +117,12 @@ const Quiz = ({ setStartQuiz }) => {
             isDisabled={isDisabled}
           />
           <h2>{translations[language].score} {score}</h2>
-          
         </>
       ) : (
         <>
           <h2>{translations[language].quizFinished} {score}/{currentQuestions.length}</h2>
-          <button onClick={handleQuit} className="quit-button">
-            <span>{translations[language].exit}</span>❌
-          </button>
-          <button onClick={handleReplay} className="replay-button">
-            {translations[language].replay}
-          </button>
+          <button onClick={handleQuit} className="quit-button"><span>{translations[language].exit}</span>❌</button>
+          <button onClick={handleReplay} className="replay-button">{translations[language].replay}</button>
         </>
       )}
     </div>
