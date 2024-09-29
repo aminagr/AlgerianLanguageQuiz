@@ -16,7 +16,7 @@ Welcome to the Algerian Language Quiz! This interactive and modern React applica
 - **Custom Difficulty Levels**: Challenge yourself with different levels of difficulty.
 - **Responsive Design**: Optimized for all devices, providing a seamless user experience on mobile and desktop.
 - **Engaging Animations**: Smooth transitions and animations enhance the interactive experience.
-- **Fast and Efficient**: Built with React, ensuring rapid loading times and smooth navigation.
+- **Fast and Efficient**: Built with React and Vite, ensuring rapid loading times and smooth navigation.
 
 
 ## 📸 Screenshots
