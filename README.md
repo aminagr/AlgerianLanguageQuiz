@@ -18,12 +18,6 @@ Welcome to the Algerian Language Quiz! This interactive and modern React applica
 - **Engaging Animations**: Smooth transitions and animations enhance the interactive experience.
 - **Fast and Efficient**: Built with React, ensuring rapid loading times and smooth navigation.
 
-## 💻 Tech Stack
-
-- **Frontend**: React.js
-- **State Management**: React Hooks
-- **Styling**: CSS Modules
-- **Responsive Layout**: Flexbox and CSS Grid
 
 ## 📸 Screenshots
 
@@ -53,7 +47,7 @@ To get a local copy up and running, follow these steps:
    git clone https://github.com/aminagr/AlgerianLanguageQuiz
    cd quiz
    npm install
-   npm start
+   npm run dev
 ```
 ## 🛠 How to Use
 
